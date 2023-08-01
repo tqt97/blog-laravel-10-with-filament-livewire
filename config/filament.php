@@ -237,7 +237,7 @@ return [
                 'alignment' => 'left',
                 'are_sticky' => true,
             ],
-            'have_inline_labels' => true,
+            'have_inline_labels' => false,
         ],
         'footer' => [
             'should_show_logo' => true,
