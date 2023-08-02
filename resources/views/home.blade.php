@@ -1,3 +1,5 @@
+
+
 <x-app-layout meta-title="TheCodeholic Blog"
     meta-description="Lorem ipsum dolor sit amet, consectetur adipisicing elit">
     <div class="container max-w-4xl mx-auto py-6">
@@ -59,7 +61,11 @@
                 {{-- @foreach ($recommendedPosts as $post)
                     <x-post-item :post="$post" :show-author="false" />
                 @endforeach --}}
+                @foreach ($posts as $post)
+                    <x-post-item :post="$post" />
+                @endforeach
             </div>
+            {{ $posts->onEachSide(1)->links() }}
         </div>
 
         <!-- Latest Categories -->
