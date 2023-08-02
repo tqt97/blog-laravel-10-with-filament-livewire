@@ -21,6 +21,8 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationGroup = 'Content';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -28,8 +30,9 @@ class CategoryResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(2048)
+                    ->autofocus()
                     ->reactive()
-                    ->afterStateUpdated(function(Closure $set, $state){
+                    ->afterStateUpdated(function (Closure $set, $state) {
                         $set('slug', Str::slug($state));
                     }),
                 Forms\Components\TextInput::make('slug')
@@ -46,12 +49,12 @@ class CategoryResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
+                // Tables\Columns\TextColumn::make('deleted_at')
+                //     ->dateTime(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                // Tables\Columns\TextColumn::make('updated_at')
+                //     ->dateTime(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
