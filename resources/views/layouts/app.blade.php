@@ -31,7 +31,7 @@
                 name web
             </a>
             <p class="text-lg text-gray-600">
-                {{-- {{ \App\Models\TextWidget::getTitle('header') }} --}} Header
+                {{ \App\Models\TextWidget::getTitle('header') }}
             </p>
         </div>
     </header>
